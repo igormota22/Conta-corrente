@@ -10,14 +10,18 @@ Acoes da conta
 
 saque
 deposito
+tranferencia
 consulta de saldo
 */
+
+
 
 using System.Security.Cryptography;
 
 string titular = "Igor";
 int numeroIdentificacao = RandomNumberGenerator.GetInt32(1, 101);
 decimal saldo = 1000;
+decimal saldo2 = 1000;
 decimal limiteDebito = 1200;
 while (true)
 {
@@ -27,7 +31,8 @@ while (true)
     System.Console.WriteLine("--------------------------------");
     System.Console.WriteLine("1 - Saque");
     System.Console.WriteLine("2 - Deposito");
-    System.Console.WriteLine("3 - Consultar Saldo");
+    System.Console.WriteLine("3 - Transferir");
+    System.Console.WriteLine("4 - Consultar Saldo");
     System.Console.WriteLine("S - Sair");
     System.Console.Write("Escolha a operação desejada:");
     string? opcaoMenu = Console.ReadLine()?.ToUpper();
@@ -64,8 +69,18 @@ while (true)
 
             saldo += valorDeposito;
             break;
-
         case "3":
+            System.Console.Write("Informe o valor que deseja transferir:");
+            decimal valorTransferencia = Convert.ToDecimal(Console.ReadLine());
+
+            saldo -= valorTransferencia;
+            saldo2 += valorTransferencia;
+
+            System.Console.WriteLine($"O valor de R${valorTransferencia} foi transferido com sucesso");
+            Console.ReadLine();
+
+        break;
+        case "4":
             System.Console.WriteLine($"Saldo: R${saldo}");
             Console.ReadLine();
             break;
