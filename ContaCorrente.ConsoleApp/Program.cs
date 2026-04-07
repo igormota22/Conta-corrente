@@ -41,11 +41,7 @@
                     break;
 
                 case "4":
-
-                    System.Console.WriteLine($"Seu saldo é de: {conta1.ObterSaldo()}");
-                    Console.ReadLine();
-
-
+                    tela.ExibirSaldo(conta1);
                     break;
 
                 default:

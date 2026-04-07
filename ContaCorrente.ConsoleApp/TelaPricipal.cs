@@ -66,6 +66,12 @@ public class TelaPricipal
 
         }
     }
+
+    public void ExibirSaldo(Conta contaAcessada)
+    {
+        System.Console.WriteLine($"Seu saldo é de: {contaAcessada.ObterSaldo()}");
+        Console.ReadLine();
+    }
 }
 
 
