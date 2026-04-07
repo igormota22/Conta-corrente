@@ -57,8 +57,21 @@ class Program
                     break;
 
                 case "3":
+                    System.Console.Write("Informe o valor que deseja transferir:");
+                    decimal valorTransferencia = Convert.ToDecimal(Console.ReadLine());
 
-                    conta1.Transferir(conta2);
+                    conta1.Transferir(conta2, valorTransferencia);
+
+                    System.Console.WriteLine($"O valor de R${valorTransferencia} foi transferido com sucesso");
+                    Console.ReadLine();
+                    if (!conta1.Transferir(conta2, valorTransferencia))
+                    {
+                        System.Console.WriteLine("A tranferencia falhou");
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("Tranferencia feita com sucesso");
+                    }
                     break;
 
                 case "4":

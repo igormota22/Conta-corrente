@@ -24,16 +24,16 @@ public class Conta
         saldo += valorDeposito;
     }
 
-    public void Transferir(Conta contaDestino)
+    public bool Transferir(Conta contaDestino, decimal valorTransferencia)
     {
-        System.Console.Write("Informe o valor que deseja transferir:");
-        decimal valorTransferencia = Convert.ToDecimal(Console.ReadLine());
+        bool conseguiuSacar = this.Sacar(valorTransferencia);
 
-        saldo -= valorTransferencia;
-        contaDestino.saldo += valorTransferencia;
-
-        System.Console.WriteLine($"O valor de R${valorTransferencia} foi transferido com sucesso");
-        Console.ReadLine();
+        if (!conseguiuSacar)
+        {
+            return false;
+        }
+        contaDestino.Depositar(valorTransferencia);
+        return true;
 
     }
 
