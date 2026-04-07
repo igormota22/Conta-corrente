@@ -50,8 +50,10 @@ class Program
                     break;
 
                 case "2":
+                    System.Console.Write("Informe o valor que deseja depositar:");
+                    decimal valorDeposito = Convert.ToDecimal(Console.ReadLine());
 
-                    conta1.Depositar();
+                    conta1.Depositar(valorDeposito);
                     break;
 
                 case "3":

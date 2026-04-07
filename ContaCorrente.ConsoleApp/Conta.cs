@@ -18,10 +18,8 @@ public class Conta
         return true;
     }
 
-    public void Depositar()
+    public void Depositar(decimal valorDeposito)
     {
-        System.Console.Write("Informe o valor que deseja depositar:");
-        decimal valorDeposito = Convert.ToDecimal(Console.ReadLine());
 
         saldo += valorDeposito;
     }
