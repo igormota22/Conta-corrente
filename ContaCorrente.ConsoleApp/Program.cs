@@ -1,7 +1,4 @@
-﻿
-using System.Security.Cryptography;
-
-class Program
+﻿class Program
 {
     public static void Main(string[] args)
     {
@@ -17,12 +14,12 @@ class Program
         conta2.saldo = 1000;
         conta2.limiteDebito = 1200;
 
+        TelaPricipal tela = new TelaPricipal();
+
         while (true)
         {
             Console.Clear();
-            ExibirMenu(conta1.numeroIdentificacao, conta1.titular);
-            System.Console.Write("Escolha a operação desejada:");
-            string? opcaoMenu = Console.ReadLine()?.ToUpper();
+            string opcaoMenu = tela.ExibirMenu(conta1);
 
             if (opcaoMenu == "S")
             {
@@ -94,18 +91,7 @@ class Program
 
     }
 
-    static void ExibirMenu(int numeroIdentificacao, string titular)
-    {
-        // Console.Clear();
-        System.Console.WriteLine("--------------------------------");
-        System.Console.WriteLine($"Conta Corrente {numeroIdentificacao} de {titular}");
-        System.Console.WriteLine("--------------------------------");
-        System.Console.WriteLine("1 - Saque");
-        System.Console.WriteLine("2 - Deposito");
-        System.Console.WriteLine("3 - Transferir");
-        System.Console.WriteLine("4 - Consultar Saldo");
-        System.Console.WriteLine("S - Sair");
 
-    }
 }
+
 
