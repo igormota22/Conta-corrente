@@ -37,10 +37,9 @@ public class Conta
 
     }
 
-    public void ObterSaldo()
+    public decimal ObterSaldo()
     {
-        System.Console.WriteLine($"Saldo: R${saldo}");
-        Console.ReadLine();
+        return saldo;
     }
 }
 

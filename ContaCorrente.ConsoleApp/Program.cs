@@ -19,6 +19,7 @@ class Program
 
         while (true)
         {
+            Console.Clear();
             ExibirMenu(conta1.numeroIdentificacao, conta1.titular);
             System.Console.Write("Escolha a operação desejada:");
             string? opcaoMenu = Console.ReadLine()?.ToUpper();
@@ -67,16 +68,22 @@ class Program
                     if (!conta1.Transferir(conta2, valorTransferencia))
                     {
                         System.Console.WriteLine("A tranferencia falhou");
+                        Console.ReadLine();
                     }
                     else
                     {
                         System.Console.WriteLine("Tranferencia feita com sucesso");
+                        Console.ReadLine();
+
                     }
                     break;
 
                 case "4":
 
-                    conta1.ObterSaldo();
+                    System.Console.WriteLine($"Seu saldo é de: {conta1.ObterSaldo()}");
+                    Console.ReadLine();
+
+
                     break;
 
                 default:
