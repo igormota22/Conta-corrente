@@ -16,6 +16,26 @@ public class TelaPricipal
 
         return opcaoMenu;
     }
+
+    public void ExibirOperacaoSaque(Conta contaAcessada)
+    {
+        System.Console.Write("Informe o valor que deseja sacar:");
+        decimal valorSaque = Convert.ToDecimal(Console.ReadLine());
+
+        contaAcessada.Sacar(valorSaque);
+
+        if (!contaAcessada.Sacar(valorSaque))
+        {
+            System.Console.WriteLine("O valor de limite de debito ja foi ultrapassado");
+            Console.ReadLine();
+            return;
+        }
+        else
+        {
+            System.Console.WriteLine("O valor foi sacado com sucesso");
+            Console.ReadLine();
+        }
+    }
 }
 
 
