@@ -33,10 +33,7 @@
                     break;
 
                 case "2":
-                    System.Console.Write("Informe o valor que deseja depositar:");
-                    decimal valorDeposito = Convert.ToDecimal(Console.ReadLine());
-
-                    conta1.Depositar(valorDeposito);
+                    tela.ExibirOperacaoDeposito(conta1);
                     break;
 
                 case "3":

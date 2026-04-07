@@ -36,6 +36,14 @@ public class TelaPricipal
             Console.ReadLine();
         }
     }
+
+    public void ExibirOperacaoDeposito(Conta contaAcessada)
+    {
+        System.Console.Write("Informe o valor que deseja depositar:");
+        decimal valorDeposito = Convert.ToDecimal(Console.ReadLine());
+
+        contaAcessada.Depositar(valorDeposito);
+    }
 }
 
 
