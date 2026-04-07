@@ -44,6 +44,28 @@ public class TelaPricipal
 
         contaAcessada.Depositar(valorDeposito);
     }
+
+    public void ExibirOperacaoTranferencia(Conta contaAcessada, Conta contaDestino)
+    {
+        System.Console.Write("Informe o valor que deseja transferir:");
+        decimal valorTransferencia = Convert.ToDecimal(Console.ReadLine());
+
+        contaAcessada.Transferir(contaDestino, valorTransferencia);
+
+        System.Console.WriteLine($"O valor de R${valorTransferencia} foi transferido com sucesso");
+        Console.ReadLine();
+        if (!contaAcessada.Transferir(contaDestino, valorTransferencia))
+        {
+            System.Console.WriteLine("A tranferencia falhou");
+            Console.ReadLine();
+        }
+        else
+        {
+            System.Console.WriteLine("Tranferencia feita com sucesso");
+            Console.ReadLine();
+
+        }
+    }
 }
 
 
