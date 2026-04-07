@@ -1,8 +1,7 @@
 public class TelaPricipal
 {
-    public string ExibirMenu(Conta contaAcessada)
+    public string? ExibirMenu(Conta contaAcessada)
     {
-        // Console.Clear();
         System.Console.WriteLine("--------------------------------");
         System.Console.WriteLine($"Conta Corrente {contaAcessada.numeroIdentificacao} de {contaAcessada.titular}");
         System.Console.WriteLine("--------------------------------");
@@ -14,6 +13,7 @@ public class TelaPricipal
         System.Console.Write("Escolha a operação desejada:");
         string? opcaoMenu = Console.ReadLine()?.ToUpper();
 
+
         return opcaoMenu;
     }
 
@@ -22,9 +22,9 @@ public class TelaPricipal
         System.Console.Write("Informe o valor que deseja sacar:");
         decimal valorSaque = Convert.ToDecimal(Console.ReadLine());
 
-        contaAcessada.Sacar(valorSaque);
+        bool conseguiuSacar = contaAcessada.Sacar(valorSaque);
 
-        if (!contaAcessada.Sacar(valorSaque))
+        if (!conseguiuSacar)
         {
             System.Console.WriteLine("O valor de limite de debito ja foi ultrapassado");
             Console.ReadLine();
@@ -43,6 +43,9 @@ public class TelaPricipal
         decimal valorDeposito = Convert.ToDecimal(Console.ReadLine());
 
         contaAcessada.Depositar(valorDeposito);
+
+        System.Console.WriteLine("O valor foi depositado com sucesso");
+        Console.ReadLine();
     }
 
     public void ExibirOperacaoTranferencia(Conta contaAcessada, Conta contaDestino)
@@ -50,18 +53,17 @@ public class TelaPricipal
         System.Console.Write("Informe o valor que deseja transferir:");
         decimal valorTransferencia = Convert.ToDecimal(Console.ReadLine());
 
-        contaAcessada.Transferir(contaDestino, valorTransferencia);
+        bool conseseguiuTranferir = contaAcessada.Transferir(contaDestino, valorTransferencia);
 
-        System.Console.WriteLine($"O valor de R${valorTransferencia} foi transferido com sucesso");
-        Console.ReadLine();
-        if (!contaAcessada.Transferir(contaDestino, valorTransferencia))
+
+        if (!conseseguiuTranferir)
         {
             System.Console.WriteLine("A tranferencia falhou");
             Console.ReadLine();
         }
         else
         {
-            System.Console.WriteLine("Tranferencia feita com sucesso");
+            System.Console.WriteLine($"O valor de R${valorTransferencia} foi transferido com sucesso");
             Console.ReadLine();
 
         }

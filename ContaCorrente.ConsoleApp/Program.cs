@@ -42,6 +42,7 @@
 
                 case "4":
                     tela.ExibirSaldo(conta1);
+                    tela.ExibirSaldo(conta2);
                     break;
 
                 default:
