@@ -6,24 +6,16 @@ public class Conta
     public decimal saldo;
     public decimal limiteDebito;
 
-    public void Sacar()
+    public bool Sacar(decimal valorSaque)
     {
-        System.Console.Write("Informe o valor que deseja sacar:");
-        decimal valorSaque = Convert.ToDecimal(Console.ReadLine());
 
-        if (saldo <= -limiteDebito)
+        if (valorSaque > saldo + limiteDebito)
         {
-            System.Console.WriteLine("O valor de limite de debito ja foi ultrapassado");
-            Console.ReadLine();
-            return;
+            return false;
         }
-        else
-        {
+        saldo -= valorSaque;
 
-            saldo -= valorSaque;
-            System.Console.WriteLine("O valor foi sacado com sucesso");
-            Console.ReadLine();
-        }
+        return true;
     }
 
     public void Depositar()
