@@ -19,7 +19,7 @@
         while (true)
         {
             Console.Clear();
-            string opcaoMenu = tela.ExibirMenu(conta1);
+            string? opcaoMenu = tela.ExibirMenu(conta1);
 
             if (opcaoMenu == "S")
             {
@@ -41,8 +41,8 @@
                     break;
 
                 case "4":
-                    tela.ExibirSaldo(conta1);
-                    tela.ExibirSaldo(conta2);
+                    tela.ExibirSaldo(conta1); //conta que tranfere (conta1)
+                    tela.ExibirSaldo(conta2); //conta que recebe (conta2)
                     break;
 
                 default:
